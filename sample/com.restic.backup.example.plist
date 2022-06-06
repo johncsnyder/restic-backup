@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+    <dict>
+        <key>Label</key>
+        <string>com.restic.backup</string>
+        <key>ProgramArguments</key>
+        <array>
+            <string>node</string>
+            <string>dist/app.js</string>
+        </array>
+        <key>WorkingDirectory</key>
+        <string>REPLACE_ME</string>
+        <key>EnvironmentVariables</key>
+        <dict>
+            <key>PATH</key>
+            <string>/bin:/usr/bin:/usr/local/bin</string>
+            <key>RESTIC_HOME</key>
+            <string>$HOME/.config/restic</string>
+            <key>RESTIC_BACKUP_DIRECTORY_LIST</key>
+            <string>./sample/backup-directory-list.txt</string>
+        </dict>
+        <key>StandardErrorPath</key>
+        <string>$HOME/Library/Logs/com.restic.backup/stderr.log</string>
+        <key>StandardOutPath</key>
+        <string>$HOME/Library/Logs/com.restic.backup/stdout.log</string>
+        <key>RunAtLoad</key>
+        <false />
+        <key>StartCalendarInterval</key>
+        <dict>
+        </dict>
+    </dict>
+</plist>

@@ -1,0 +1,4 @@
+host: "MacBook-Pro-Foo-Bar"
+resticRepository: "gs:restic-backup-foo-bar:/"
+resticPasswordFile: "$HOME/.config/restic/password"
+googleApplicationCredentials: "$HOME/.config/restic/google-application-credentials.json"
