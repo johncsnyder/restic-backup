@@ -14,7 +14,7 @@ merged.
 
 ## Google cloud project setup
 
-Set up a dedicated google cloud project to host backup data.
+Set up a dedicated google cloud project to host your backups.
 
 Create a multi-region bucket for the Restic repository. For example,
 "gs://restic-backup-respository-foobar".
@@ -29,7 +29,7 @@ You'll need to initialize your repository before you can start backing up (`rest
 
 ## Security
 
-Secure your Restic home directory so that only your user have read/write privileges. For example,
+Secure your Restic home directory so that only your user has read/write privileges. For example,
 
 ```
 chmod 600 $HOME/.config/restic/password
@@ -50,7 +50,14 @@ export GOOGLE_APPLICATION_CREDENTIALS="$HOME/.config/restic/google-application-c
 ```
 
 You can source in this file in your shell and then easily run multiple restic commands to manage
-your respository.
+your respository. For example,
+
+```
+source $HOME/.config/restic/env
+restic init
+restic snapshots
+restic prune
+```
 
 ## Load launchd service
 
@@ -58,7 +65,7 @@ There is a sample launchd configuration file located at `./sample/com.restic.bac
 Copy it and replace the placeholders with your repository's information. You can further customize
 the backup frequency etc.
 
-To load the service, that you can get automated backups running in the background, run
+To load the service into launchd, run
 
 ```
 launchctl load com.restic.backup.plist
