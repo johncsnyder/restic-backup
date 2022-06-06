@@ -2,12 +2,15 @@
   "name": "restic-backup",
   "version": "0.0.1",
   "description": "Automated backup to cloud storage using Restic",
-  "main": "app.js",
+  "main": "dist/app.js",
+  "bin": "dist/app.js",
   "scripts": {
     "build": "tsc",
     "build:watch": "tsc --watch",
     "start": "node dist/app.js",
-    "start:dev": "ts-node-dev --files -r dotenv/config src/app.ts"
+    "start:dev": "ts-node-dev --files -r dotenv/config src/app.ts",
+    "pkg": "yarn build && pkg package.json",
+    "clean": "rimraf dist/ release/ yarn-error.log"
   },
   "author": "John C. Snyder",
   "license": "MIT",
@@ -27,7 +30,17 @@
     "@types/luxon": "^2.3.2",
     "@types/node": "^17.0.40",
     "dotenv": "^16.0.1",
+    "pkg": "^5.7.0",
+    "rimraf": "^3.0.2",
     "ts-node-dev": "^2.0.0",
     "typescript": "^4.7.3"
+  },
+  "pkg": {
+    "targets": [
+      "node14-linux-x64",
+      "node14-macos-x64",
+      "node14-win-x64"
+    ],
+    "outputPath": "release"
   }
 }

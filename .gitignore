@@ -1,8 +1,9 @@
 node_modules/
 dist/
-yarn-error.log
+release/
 
 .env
+yarn-error.log
 
 # VS code
 *.code-workspace
