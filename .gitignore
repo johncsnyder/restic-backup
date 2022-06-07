@@ -5,5 +5,11 @@ release/
 .env
 yarn-error.log
 
-# VS code
+# nodenv
+.node-version
+
+# asdf
+.tool-versions
+
+# VS Code
 *.code-workspace
